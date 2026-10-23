@@ -2,19 +2,23 @@
 
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Fraunces Variable", ui-serif, Georgia, serif;
-  --color-paper: #f6f2ea;
-  --color-card: #fffdf8;
-  --color-ink: #0f2a43;
-  --color-muted: #5b6b7b;
-  --color-line: #e3dccd;
-  --color-accent: #0f766e;
-  --color-accent-soft: #d9efeb;
+  --font-display: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: #0a0f14;
+  --color-card: #101820;
+  --color-ink: #e6edf3;
+  --color-muted: #8b9bab;
+  --color-line: #1d2935;
+  --color-accent: #2dd4bf;
+  --color-accent-soft: rgba(45, 212, 191, 0.12);
+  --color-onaccent: #04211d;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
+  color-scheme: dark;
 }
 
 body {
@@ -25,11 +29,34 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent-soft);
+  background: rgba(45, 212, 191, 0.3);
+}
+
+/* Grilla sutil para la portada */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(230, 237, 243, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(230, 237, 243, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 0%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 0%, #000 40%, transparent 100%);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  animation: blink 1.1s steps(1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .cursor {
+    animation: none;
   }
 }

@@ -47,7 +47,7 @@ export default function Island({ t, lang, onLang }: Props) {
         layout
         transition={SPRING}
         style={{ borderRadius: 28 }}
-        className={`pointer-events-auto overflow-hidden bg-ink text-paper shadow-[0_12px_40px_-12px_rgba(15,42,67,0.55)] ${
+        className={`pointer-events-auto overflow-hidden bg-[#03060a] text-ink shadow-[0_12px_40px_-10px_rgba(0,0,0,0.9)] ring-1 ring-white/12 ${
           open ? "w-[min(92vw,26rem)]" : "w-[15.5rem]"
         }`}
       >
@@ -59,12 +59,12 @@ export default function Island({ t, lang, onLang }: Props) {
           aria-label={open ? t.island.close : t.island.menu}
           className="flex w-full cursor-pointer items-center gap-3 px-3 py-2.5 text-left"
         >
-          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent font-serif text-[0.8rem] font-semibold">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent font-mono text-[0.75rem] font-bold text-onaccent">
             GD
           </span>
           <span className="min-w-0 flex-1 leading-tight">
             <span className="block truncate text-sm font-semibold">{PROFILE.name}</span>
-            <span className="flex items-center gap-1.5 text-[0.7rem] text-paper/70">
+            <span className="flex items-center gap-1.5 font-mono text-[0.68rem] text-muted">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -83,7 +83,7 @@ export default function Island({ t, lang, onLang }: Props) {
             strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="mr-1 shrink-0 text-paper/70"
+            className="mr-1 shrink-0 text-muted"
             aria-hidden="true"
           >
             <path d="m6 9 6 6 6-6" />
@@ -105,7 +105,7 @@ export default function Island({ t, lang, onLang }: Props) {
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="rounded-xl bg-paper/10 px-3 py-2 text-center text-sm font-medium transition-colors hover:bg-paper/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+                    className="rounded-xl bg-white/6 px-3 py-2 text-center text-sm font-medium transition-colors hover:bg-white/12 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
                     {l.label}
                   </a>
@@ -116,7 +116,7 @@ export default function Island({ t, lang, onLang }: Props) {
                 <div
                   role="group"
                   aria-label="Idioma / Language"
-                  className="flex rounded-xl bg-paper/10 p-0.5 text-xs font-semibold"
+                  className="flex rounded-xl bg-white/6 p-0.5 font-mono text-xs font-semibold"
                 >
                   {(["es", "en"] as const).map((l) => (
                     <button
@@ -125,7 +125,7 @@ export default function Island({ t, lang, onLang }: Props) {
                       onClick={() => onLang(l)}
                       aria-pressed={lang === l}
                       className={`cursor-pointer rounded-[0.65rem] px-3 py-1.5 uppercase transition-colors ${
-                        lang === l ? "bg-paper text-ink" : "text-paper/75 hover:text-paper"
+                        lang === l ? "bg-ink text-paper" : "text-muted hover:text-ink"
                       }`}
                     >
                       {l}
@@ -134,7 +134,7 @@ export default function Island({ t, lang, onLang }: Props) {
                 </div>
                 <a
                   href={`mailto:${PROFILE.email}`}
-                  className="ml-auto flex-1 rounded-xl bg-accent px-3 py-2 text-center text-sm font-semibold transition-colors hover:bg-teal-600"
+                  className="ml-auto flex-1 rounded-xl bg-accent px-3 py-2 text-center text-sm font-semibold text-onaccent transition-colors hover:bg-teal-300"
                 >
                   {t.island.mail}
                 </a>
